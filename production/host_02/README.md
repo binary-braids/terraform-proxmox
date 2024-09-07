@@ -20,7 +20,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [proxmox_vm_qemu.dc01](https://registry.terraform.io/providers/telmate/proxmox/3.0.1-rc4/docs/resources/vm_qemu) | resource |
+| [proxmox_vm_qemu.dc02](https://registry.terraform.io/providers/telmate/proxmox/3.0.1-rc4/docs/resources/vm_qemu) | resource |
 | [proxmox_vm_qemu.docker](https://registry.terraform.io/providers/telmate/proxmox/3.0.1-rc4/docs/resources/vm_qemu) | resource |
 | [proxmox_vm_qemu.veeam](https://registry.terraform.io/providers/telmate/proxmox/3.0.1-rc4/docs/resources/vm_qemu) | resource |
 

@@ -5,25 +5,25 @@
 ## Domain Controller
 
 resource "proxmox_vm_qemu" "dc02" {
-  name                   = var.dc02_name
-  desc                   = var.dc02_desc
-  automatic_reboot       = var.dc02_automatic_reboot
-  bios                   = var.dc02_bios
-  boot                   = var.dc02_boot
-  cores                  = var.dc02_cores
-  sockets                = var.dc02_sockets
-  cpu                    = var.dc02_cpu
-  force_create           = var.dc02_force_create
-  hotplug                = var.dc02_hotplug
-  memory                 = var.dc02_memory
-  onboot                 = var.dc02_onboot
-  vm_state               = var.dc02_vm_state
-  os_type                = var.dc02_os_type
-  qemu_os                = var.dc02_qemu_os
-  scsihw                 = var.dc02_scsihw
-  protection             = var.dc02_protection
-  tablet                 = var.dc02_tablet
-  target_node            = var.dc02_target_node
+  name             = var.dc02_name
+  desc             = var.dc02_desc
+  automatic_reboot = var.dc02_automatic_reboot
+  bios             = var.dc02_bios
+  boot             = var.dc02_boot
+  cores            = var.dc02_cores
+  sockets          = var.dc02_sockets
+  cpu              = var.dc02_cpu
+  force_create     = var.dc02_force_create
+  hotplug          = var.dc02_hotplug
+  memory           = var.dc02_memory
+  onboot           = var.dc02_onboot
+  vm_state         = var.dc02_vm_state
+  os_type          = var.dc02_os_type
+  qemu_os          = var.dc02_qemu_os
+  scsihw           = var.dc02_scsihw
+  protection       = var.dc02_protection
+  tablet           = var.dc02_tablet
+  target_node      = var.dc02_target_node
 
   efidisk {
     efitype = var.dc02_efitype
@@ -34,16 +34,16 @@ resource "proxmox_vm_qemu" "dc02" {
     sata {
       sata0 {
         disk {
-          size               = var.dc02_disk_size
-          storage            = var.dc02_disk_storage
+          size    = var.dc02_disk_size
+          storage = var.dc02_disk_storage
         }
       }
     }
   }
 
   network {
-    bridge    = var.dc02_bridge
-    model     = var.dc02_model
+    bridge = var.dc02_bridge
+    model  = var.dc02_model
   }
 }
 
