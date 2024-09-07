@@ -18,7 +18,7 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url = "https://prod-host-02.binarybraids.com:8006/api2/json"
-  pm_user = "terraform@pve"
+  pm_api_url  = "https://prod-host-02.binarybraids.com:8006/api2/json"
+  pm_user     = "terraform@pve"
   pm_password = "#{PROD_02_HOST_TERRAFORM_PASSWORD}#"
 }
