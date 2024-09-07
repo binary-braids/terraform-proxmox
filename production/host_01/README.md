@@ -4,13 +4,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
-| <a name="requirement_esxi"></a> [esxi](#requirement\_esxi) | 1.10.3 |
+| <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | 3.0.1-rc4 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_esxi"></a> [esxi](#provider\_esxi) | 1.10.3 |
+| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 3.0.1-rc4 |
 
 ## Modules
 
@@ -20,60 +20,61 @@ No modules.
 
 | Name | Type |
 |------|------|
-| esxi_guest.dc01 | resource |
-| esxi_guest.media | resource |
-| esxi_guest.veeam | resource |
-| esxi_portgroup.production | resource |
-| esxi_vswitch.production | resource |
+| [proxmox_vm_qemu.dc01](https://registry.terraform.io/providers/telmate/proxmox/3.0.1-rc4/docs/resources/vm_qemu) | resource |
+| [proxmox_vm_qemu.media](https://registry.terraform.io/providers/telmate/proxmox/3.0.1-rc4/docs/resources/vm_qemu) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_dc01_boot_firmware"></a> [dc01\_boot\_firmware](#input\_dc01\_boot\_firmware) | The firmware type for the guest VM | `string` | n/a | yes |
-| <a name="input_dc01_disk_store"></a> [dc01\_disk\_store](#input\_dc01\_disk\_store) | The name of the data store where the guest VM will be created | `string` | n/a | yes |
-| <a name="input_dc01_guest_name"></a> [dc01\_guest\_name](#input\_dc01\_guest\_name) | The name of the guest VM | `string` | n/a | yes |
-| <a name="input_dc01_memsize"></a> [dc01\_memsize](#input\_dc01\_memsize) | The amount of memory to allocate the guest VM in MB (1024 = 1GB) | `number` | n/a | yes |
-| <a name="input_dc01_nic_type"></a> [dc01\_nic\_type](#input\_dc01\_nic\_type) | The type for the network interface | `string` | n/a | yes |
-| <a name="input_dc01_notes"></a> [dc01\_notes](#input\_dc01\_notes) | Annotated notes to add to the guest VM | `string` | n/a | yes |
-| <a name="input_dc01_numvcpus"></a> [dc01\_numvcpus](#input\_dc01\_numvcpus) | The number of vCPUs to allocate to the guest VM | `number` | n/a | yes |
-| <a name="input_dc01_power"></a> [dc01\_power](#input\_dc01\_power) | Set the guest VM Power state | `string` | n/a | yes |
-| <a name="input_dc01_resource_pool_name"></a> [dc01\_resource\_pool\_name](#input\_dc01\_resource\_pool\_name) | The name of the Resource Pool for the guest VM | `string` | n/a | yes |
-| <a name="input_dc01_virthwver"></a> [dc01\_virthwver](#input\_dc01\_virthwver) | The hardware version of the guest VM | `number` | n/a | yes |
-| <a name="input_dc01_virtual_network"></a> [dc01\_virtual\_network](#input\_dc01\_virtual\_network) | The virtual network for the network interface | `string` | n/a | yes |
-| <a name="input_esxi_hostname"></a> [esxi\_hostname](#input\_esxi\_hostname) | hostname for ESXI host | `string` | n/a | yes |
-| <a name="input_esxi_hostport"></a> [esxi\_hostport](#input\_esxi\_hostport) | SSH port for ESXI host | `string` | n/a | yes |
-| <a name="input_esxi_hostssl"></a> [esxi\_hostssl](#input\_esxi\_hostssl) | SSL port for ESXI host | `string` | n/a | yes |
-| <a name="input_esxi_password"></a> [esxi\_password](#input\_esxi\_password) | password for ESXI host | `string` | n/a | yes |
-| <a name="input_esxi_username"></a> [esxi\_username](#input\_esxi\_username) | username for ESXI host | `string` | n/a | yes |
-| <a name="input_media_boot_firmware"></a> [media\_boot\_firmware](#input\_media\_boot\_firmware) | The firmware type for the guest VM | `string` | n/a | yes |
-| <a name="input_media_disk_store"></a> [media\_disk\_store](#input\_media\_disk\_store) | The name of the data store where the guest VM will be created | `string` | n/a | yes |
-| <a name="input_media_guest_name"></a> [media\_guest\_name](#input\_media\_guest\_name) | The name of the guest VM | `string` | n/a | yes |
-| <a name="input_media_memsize"></a> [media\_memsize](#input\_media\_memsize) | The amount of memory to allocate the guest VM in MB (1024 = 1GB) | `number` | n/a | yes |
-| <a name="input_media_nic_type"></a> [media\_nic\_type](#input\_media\_nic\_type) | The type for the network interface | `string` | n/a | yes |
-| <a name="input_media_notes"></a> [media\_notes](#input\_media\_notes) | Annotated notes to add to the guest VM | `string` | n/a | yes |
-| <a name="input_media_numvcpus"></a> [media\_numvcpus](#input\_media\_numvcpus) | The number of vCPUs to allocate to the guest VM | `number` | n/a | yes |
-| <a name="input_media_power"></a> [media\_power](#input\_media\_power) | Set the guest VM Power state | `string` | n/a | yes |
-| <a name="input_media_resource_pool_name"></a> [media\_resource\_pool\_name](#input\_media\_resource\_pool\_name) | The name of the Resource Pool for the guest VM | `string` | n/a | yes |
-| <a name="input_media_virthwver"></a> [media\_virthwver](#input\_media\_virthwver) | The hardware version of the guest VM | `number` | n/a | yes |
-| <a name="input_media_virtual_disk_id"></a> [media\_virtual\_disk\_id](#input\_media\_virtual\_disk\_id) | The id of the virtual disk | `string` | n/a | yes |
-| <a name="input_media_virtual_disk_slot"></a> [media\_virtual\_disk\_slot](#input\_media\_virtual\_disk\_slot) | The slot for the virtual disk | `string` | n/a | yes |
-| <a name="input_media_virtual_network"></a> [media\_virtual\_network](#input\_media\_virtual\_network) | The virtual network for the network interface | `string` | n/a | yes |
-| <a name="input_port_group_name"></a> [port\_group\_name](#input\_port\_group\_name) | The name of the Port Group | `string` | n/a | yes |
-| <a name="input_port_group_vlan"></a> [port\_group\_vlan](#input\_port\_group\_vlan) | The VLAN ID for the Port Group | `number` | n/a | yes |
-| <a name="input_uplink_name"></a> [uplink\_name](#input\_uplink\_name) | The name of the vSwitch uplink | `string` | n/a | yes |
-| <a name="input_veeam_boot_firmware"></a> [veeam\_boot\_firmware](#input\_veeam\_boot\_firmware) | The firmware type for the guest VM | `string` | n/a | yes |
-| <a name="input_veeam_disk_store"></a> [veeam\_disk\_store](#input\_veeam\_disk\_store) | The name of the data store where the guest VM will be created | `string` | n/a | yes |
-| <a name="input_veeam_guest_name"></a> [veeam\_guest\_name](#input\_veeam\_guest\_name) | The name of the guest VM | `string` | n/a | yes |
-| <a name="input_veeam_memsize"></a> [veeam\_memsize](#input\_veeam\_memsize) | The amount of memory to allocate the guest VM in MB (1024 = 1GB) | `number` | n/a | yes |
-| <a name="input_veeam_nic_type"></a> [veeam\_nic\_type](#input\_veeam\_nic\_type) | The type for the network interface | `string` | n/a | yes |
-| <a name="input_veeam_notes"></a> [veeam\_notes](#input\_veeam\_notes) | Annotated notes to add to the guest VM | `string` | n/a | yes |
-| <a name="input_veeam_numvcpus"></a> [veeam\_numvcpus](#input\_veeam\_numvcpus) | The number of vCPUs to allocate to the guest VM | `number` | n/a | yes |
-| <a name="input_veeam_power"></a> [veeam\_power](#input\_veeam\_power) | Set the guest VM Power state | `string` | n/a | yes |
-| <a name="input_veeam_resource_pool_name"></a> [veeam\_resource\_pool\_name](#input\_veeam\_resource\_pool\_name) | The name of the Resource Pool for the guest VM | `string` | n/a | yes |
-| <a name="input_veeam_virthwver"></a> [veeam\_virthwver](#input\_veeam\_virthwver) | The hardware version of the guest VM | `number` | n/a | yes |
-| <a name="input_veeam_virtual_network"></a> [veeam\_virtual\_network](#input\_veeam\_virtual\_network) | The virtual network for the network interface | `string` | n/a | yes |
-| <a name="input_vswitch_name"></a> [vswitch\_name](#input\_vswitch\_name) | The name of the vSwitch | `string` | n/a | yes |
+| <a name="input_dc01_automatic_reboot"></a> [dc01\_automatic\_reboot](#input\_dc01\_automatic\_reboot) | Automatically reboot the VM when parameter changes require this. If disabled the provider will emit a warning when the VM needs to be rebooted. | `bool` | n/a | yes |
+| <a name="input_dc01_bios"></a> [dc01\_bios](#input\_dc01\_bios) | The BIOS to use, options are seabios or ovmf for UEFI | `string` | n/a | yes |
+| <a name="input_dc01_boot"></a> [dc01\_boot](#input\_dc01\_boot) | The boot order for the VM. For example: order=scsi0;ide2;net0 | `string` | n/a | yes |
+| <a name="input_dc01_bridge"></a> [dc01\_bridge](#input\_dc01\_bridge) | Bridge to which the network device should be attached. The Proxmox VE standard bridge is called vmbr0. | `string` | n/a | yes |
+| <a name="input_dc01_cores"></a> [dc01\_cores](#input\_dc01\_cores) | The number of CPU cores per CPU socket to allocate to the VM. | `number` | n/a | yes |
+| <a name="input_dc01_cpu"></a> [dc01\_cpu](#input\_dc01\_cpu) | The type of CPU to emulate in the Guest | `string` | n/a | yes |
+| <a name="input_dc01_desc"></a> [dc01\_desc](#input\_dc01\_desc) | The description of the VM. Shows as the 'Notes' field in the Proxmox GUI | `string` | n/a | yes |
+| <a name="input_dc01_disk_size"></a> [dc01\_disk\_size](#input\_dc01\_disk\_size) | The size of the created disk. Accepts K for kibibytes, M for mebibytes, G for gibibytes, T for tibibytes. When only a number is provided gibibytes is assumed. Required when type=disk and passthrough=false, Computed when type=disk and passthrough=true. | `string` | n/a | yes |
+| <a name="input_dc01_disk_storage"></a> [dc01\_disk\_storage](#input\_dc01\_disk\_storage) | Required when type=disk and passthrough=false. The name of the storage pool on which to store the disk. | `string` | n/a | yes |
+| <a name="input_dc01_efi_storage"></a> [dc01\_efi\_storage](#input\_dc01\_efi\_storage) | The name of the storage pool on which to store the disk. | `string` | n/a | yes |
+| <a name="input_dc01_efitype"></a> [dc01\_efitype](#input\_dc01\_efitype) | The type of efi disk device to add. Options: 2m, 4m | `string` | n/a | yes |
+| <a name="input_dc01_force_create"></a> [dc01\_force\_create](#input\_dc01\_force\_create) | If false, and a vm of the same name, on the same node exists, terraform will attempt to reconfigure that VM with these settings. Set to true to always create a new VM (note, the name of the VM must still be unique, otherwise an error will be produced.) | `bool` | n/a | yes |
+| <a name="input_dc01_hotplug"></a> [dc01\_hotplug](#input\_dc01\_hotplug) | Comma delimited list of hotplug features to enable. Options: network, disk, cpu, memory, usb. Set to 0 to disable hotplug. | `string` | n/a | yes |
+| <a name="input_dc01_memory"></a> [dc01\_memory](#input\_dc01\_memory) | The amount of memory to allocate to the VM in Megabytes. | `number` | n/a | yes |
+| <a name="input_dc01_model"></a> [dc01\_model](#input\_dc01\_model) | Network Card Model. The virtio model provides the best performance with very low CPU overhead. If your guest does not support this driver, it is usually best to use e1000. Options: e1000, e1000-82540em, e1000-82544gc, e1000-82545em, i82551, i82557b, i82559er, ne2k\_isa, ne2k\_pci, pcnet, rtl8139, virtio, vmxnet3. | `string` | n/a | yes |
+| <a name="input_dc01_name"></a> [dc01\_name](#input\_dc01\_name) | The name of the VM within Proxmox | `string` | n/a | yes |
+| <a name="input_dc01_onboot"></a> [dc01\_onboot](#input\_dc01\_onboot) | Whether to have the VM startup after the PVE node starts. | `bool` | n/a | yes |
+| <a name="input_dc01_os_type"></a> [dc01\_os\_type](#input\_dc01\_os\_type) | Which provisioning method to use, based on the OS type. Options: ubuntu, centos, cloud-init. | `string` | n/a | yes |
+| <a name="input_dc01_protection"></a> [dc01\_protection](#input\_dc01\_protection) | Enable/disable the VM protection from being removed. The default value of false indicates the VM is removable. | `bool` | n/a | yes |
+| <a name="input_dc01_qemu_os"></a> [dc01\_qemu\_os](#input\_dc01\_qemu\_os) | The type of OS in the guest. Set properly to allow Proxmox to enable optimizations for the appropriate guest OS. It takes the value from the source template and ignore any changes to resource configuration parameter. | `string` | n/a | yes |
+| <a name="input_dc01_scsihw"></a> [dc01\_scsihw](#input\_dc01\_scsihw) | The SCSI controller to emulate. Options: lsi, lsi53c810, megasas, pvscsi, virtio-scsi-pci, virtio-scsi-single. | `string` | n/a | yes |
+| <a name="input_dc01_sockets"></a> [dc01\_sockets](#input\_dc01\_sockets) | The number of CPU sockets to allocate to the VM. | `number` | n/a | yes |
+| <a name="input_dc01_tablet"></a> [dc01\_tablet](#input\_dc01\_tablet) | Enable/disable the USB tablet device. This device is usually needed to allow absolute mouse positioning with VNC. | `bool` | n/a | yes |
+| <a name="input_dc01_target_node"></a> [dc01\_target\_node](#input\_dc01\_target\_node) | The name of the Proxmox Node on which to place the VM. | `string` | n/a | yes |
+| <a name="input_dc01_vm_state"></a> [dc01\_vm\_state](#input\_dc01\_vm\_state) | The desired state of the VM, options are running, stopped and started. Do note that started will only start the vm on creation and won't fully manage the power state unlike running and stopped do. | `string` | n/a | yes |
+| <a name="input_media_automatic_reboot"></a> [media\_automatic\_reboot](#input\_media\_automatic\_reboot) | Automatically reboot the VM when parameter changes require this. If disabled the provider will emit a warning when the VM needs to be rebooted. | `bool` | n/a | yes |
+| <a name="input_media_bios"></a> [media\_bios](#input\_media\_bios) | The BIOS to use, options are seabios or ovmf for UEFI | `string` | n/a | yes |
+| <a name="input_media_boot"></a> [media\_boot](#input\_media\_boot) | The boot order for the VM. For example: order=scsi0;ide2;net0 | `string` | n/a | yes |
+| <a name="input_media_bridge"></a> [media\_bridge](#input\_media\_bridge) | Bridge to which the network device should be attached. The Proxmox VE standard bridge is called vmbr0. | `string` | n/a | yes |
+| <a name="input_media_cores"></a> [media\_cores](#input\_media\_cores) | The number of CPU cores per CPU socket to allocate to the VM. | `number` | n/a | yes |
+| <a name="input_media_cpu"></a> [media\_cpu](#input\_media\_cpu) | The type of CPU to emulate in the Guest | `string` | n/a | yes |
+| <a name="input_media_desc"></a> [media\_desc](#input\_media\_desc) | The description of the VM. Shows as the 'Notes' field in the Proxmox GUI | `string` | n/a | yes |
+| <a name="input_media_disk_size"></a> [media\_disk\_size](#input\_media\_disk\_size) | The size of the created disk. Accepts K for kibibytes, M for mebibytes, G for gibibytes, T for tibibytes. When only a number is provided gibibytes is assumed. Required when type=disk and passthrough=false, Computed when type=disk and passthrough=true. | `string` | n/a | yes |
+| <a name="input_media_disk_storage"></a> [media\_disk\_storage](#input\_media\_disk\_storage) | Required when type=disk and passthrough=false. The name of the storage pool on which to store the disk. | `string` | n/a | yes |
+| <a name="input_media_force_create"></a> [media\_force\_create](#input\_media\_force\_create) | If false, and a vm of the same name, on the same node exists, terraform will attempt to reconfigure that VM with these settings. Set to true to always create a new VM (note, the name of the VM must still be unique, otherwise an error will be produced.) | `bool` | n/a | yes |
+| <a name="input_media_hotplug"></a> [media\_hotplug](#input\_media\_hotplug) | Comma delimited list of hotplug features to enable. Options: network, disk, cpu, memory, usb. Set to 0 to disable hotplug. | `string` | n/a | yes |
+| <a name="input_media_memory"></a> [media\_memory](#input\_media\_memory) | The amount of memory to allocate to the VM in Megabytes. | `number` | n/a | yes |
+| <a name="input_media_model"></a> [media\_model](#input\_media\_model) | Network Card Model. The virtio model provides the best performance with very low CPU overhead. If your guest does not support this driver, it is usually best to use e1000. Options: e1000, e1000-82540em, e1000-82544gc, e1000-82545em, i82551, i82557b, i82559er, ne2k\_isa, ne2k\_pci, pcnet, rtl8139, virtio, vmxnet3. | `string` | n/a | yes |
+| <a name="input_media_name"></a> [media\_name](#input\_media\_name) | The name of the VM within Proxmox | `string` | n/a | yes |
+| <a name="input_media_onboot"></a> [media\_onboot](#input\_media\_onboot) | Whether to have the VM startup after the PVE node starts. | `bool` | n/a | yes |
+| <a name="input_media_os_type"></a> [media\_os\_type](#input\_media\_os\_type) | Which provisioning method to use, based on the OS type. Options: ubuntu, centos, cloud-init. | `string` | n/a | yes |
+| <a name="input_media_protection"></a> [media\_protection](#input\_media\_protection) | Enable/disable the VM protection from being removed. The default value of false indicates the VM is removable. | `bool` | n/a | yes |
+| <a name="input_media_qemu_os"></a> [media\_qemu\_os](#input\_media\_qemu\_os) | The type of OS in the guest. Set properly to allow Proxmox to enable optimizations for the appropriate guest OS. It takes the value from the source template and ignore any changes to resource configuration parameter. | `string` | n/a | yes |
+| <a name="input_media_scsihw"></a> [media\_scsihw](#input\_media\_scsihw) | The SCSI controller to emulate. Options: lsi, lsi53c810, megasas, pvscsi, virtio-scsi-pci, virtio-scsi-single. | `string` | n/a | yes |
+| <a name="input_media_sockets"></a> [media\_sockets](#input\_media\_sockets) | The number of CPU sockets to allocate to the VM. | `number` | n/a | yes |
+| <a name="input_media_tablet"></a> [media\_tablet](#input\_media\_tablet) | Enable/disable the USB tablet device. This device is usually needed to allow absolute mouse positioning with VNC. | `bool` | n/a | yes |
+| <a name="input_media_target_node"></a> [media\_target\_node](#input\_media\_target\_node) | The name of the Proxmox Node on which to place the VM. | `string` | n/a | yes |
+| <a name="input_media_vm_state"></a> [media\_vm\_state](#input\_media\_vm\_state) | The desired state of the VM, options are running, stopped and started. Do note that started will only start the vm on creation and won't fully manage the power state unlike running and stopped do. | `string` | n/a | yes |
 
 ## Outputs
 
