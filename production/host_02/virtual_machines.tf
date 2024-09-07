@@ -121,10 +121,6 @@ resource "proxmox_vm_qemu" "docker" {
     sata {
       sata0 {
         disk {
-          backup             = var.docker_disk_backup
-          cache              = var.docker_disk_cache
-          discard            = var.docker_disk_discard
-          emulatessd         = var.docker_disk_emulatessd
           size               = var.docker_disk_size
           storage            = var.docker_disk_storage
         }
