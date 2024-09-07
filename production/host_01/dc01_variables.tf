@@ -25,12 +25,12 @@ variable "dc01_boot" {
 
 variable "dc01_cores" {
   description = "The number of CPU cores per CPU socket to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "dc01_sockets" {
   description = "The number of CPU sockets to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "dc01_cpu" {
@@ -50,7 +50,7 @@ variable "dc01_hotplug" {
 
 variable "dc01_memory" {
   description = "The amount of memory to allocate to the VM in Megabytes."
-  type        = int
+  type        = number
 }
 
 variable "dc01_onboot" {

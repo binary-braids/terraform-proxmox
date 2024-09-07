@@ -25,12 +25,12 @@ variable "media_boot" {
 
 variable "media_cores" {
   description = "The number of CPU cores per CPU socket to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "media_sockets" {
   description = "The number of CPU sockets to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "media_cpu" {
@@ -50,7 +50,7 @@ variable "media_hotplug" {
 
 variable "media_memory" {
   description = "The amount of memory to allocate to the VM in Megabytes."
-  type        = int
+  type        = number
 }
 
 variable "media_onboot" {

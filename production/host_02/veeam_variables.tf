@@ -25,12 +25,12 @@ variable "veeam_boot" {
 
 variable "veeam_cores" {
   description = "The number of CPU cores per CPU socket to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "veeam_sockets" {
   description = "The number of CPU sockets to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "veeam_cpu" {
@@ -50,7 +50,7 @@ variable "veeam_hotplug" {
 
 variable "veeam_memory" {
   description = "The amount of memory to allocate to the VM in Megabytes."
-  type        = int
+  type        = number
 }
 
 variable "veeam_onboot" {

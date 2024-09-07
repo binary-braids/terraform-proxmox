@@ -25,12 +25,12 @@ variable "docker_boot" {
 
 variable "docker_cores" {
   description = "The number of CPU cores per CPU socket to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "docker_sockets" {
   description = "The number of CPU sockets to allocate to the VM."
-  type        = int
+  type        = number
 }
 
 variable "docker_cpu" {
@@ -50,7 +50,7 @@ variable "docker_hotplug" {
 
 variable "docker_memory" {
   description = "The amount of memory to allocate to the VM in Megabytes."
-  type        = int
+  type        = number
 }
 
 variable "docker_onboot" {
