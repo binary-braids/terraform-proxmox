@@ -77,10 +77,6 @@ resource "proxmox_vm_qemu" "veeam" {
     sata {
       sata0 {
         disk {
-          backup             = var.veeam_disk_backup
-          cache              = var.veeam_disk_cache
-          discard            = var.veeam_disk_discard
-          emulatessd         = var.veeam_disk_emulatessd
           size               = var.veeam_disk_size
           storage            = var.veeam_disk_storage
         }

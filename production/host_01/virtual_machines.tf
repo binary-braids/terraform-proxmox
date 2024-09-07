@@ -70,10 +70,6 @@ resource "proxmox_vm_qemu" "media" {
     sata {
       sata0 {
         disk {
-          backup             = var.media_disk_backup
-          cache              = var.media_disk_cache
-          discard            = var.media_disk_discard
-          emulatessd         = var.media_disk_emulatessd
           size               = var.media_disk_size
           storage            = var.media_disk_storage
         }
