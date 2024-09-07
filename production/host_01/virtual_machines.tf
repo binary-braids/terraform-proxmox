@@ -70,8 +70,8 @@ resource "proxmox_vm_qemu" "media" {
     sata {
       sata0 {
         disk {
-          size               = var.media_disk_size
-          storage            = var.media_disk_storage
+          size    = var.media_disk_size
+          storage = var.media_disk_storage
         }
       }
     }

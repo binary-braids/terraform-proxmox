@@ -78,8 +78,8 @@ resource "proxmox_vm_qemu" "veeam" {
     sata {
       sata0 {
         disk {
-          size               = var.veeam_disk_size
-          storage            = var.veeam_disk_storage
+          size    = var.veeam_disk_size
+          storage = var.veeam_disk_storage
         }
       }
     }
