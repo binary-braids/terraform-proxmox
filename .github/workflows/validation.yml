@@ -14,14 +14,14 @@ jobs:
     steps:
 
     - name: Generate GitHub App Token 🪙
-      uses: tibdex/github-app-token@v2
+      uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
       id: generate-token
       with:
         app_id: ${{ secrets.BRAID_BOT_APP_ID }}
         private_key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
 
     - name: Checkout 🔔
-      uses: actions/checkout@v4
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         token: ${{ steps.generate-token.outputs.token }}
@@ -78,21 +78,21 @@ jobs:
     steps:
 
     - name: Generate GitHub App Token 🪙
-      uses: tibdex/github-app-token@v2
+      uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
       id: generate-token
       with:
         app_id: ${{ secrets.BRAID_BOT_APP_ID }}
         private_key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
 
     - name: Checkout 🔔
-      uses: actions/checkout@v4
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         token: ${{ steps.generate-token.outputs.token }}
 
     - name: Conventional Changelog Action 📋
       id: changelog
-      uses: TriPSs/conventional-changelog-action@v5
+      uses: TriPSs/conventional-changelog-action@3a392e9aa44a72686b0fc13259a90d287dd0877c # v5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         git-user-name: "braid-bot[bot]"
