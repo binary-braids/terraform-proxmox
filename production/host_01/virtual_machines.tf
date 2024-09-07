@@ -78,8 +78,8 @@ resource "proxmox_vm_qemu" "media" {
   }
 
   network {
-    bridge    = var.media_bridge
-    model     = var.media_model
+    bridge = var.media_bridge
+    model  = var.media_model
   }
 }
 
