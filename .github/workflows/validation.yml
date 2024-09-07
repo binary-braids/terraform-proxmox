@@ -27,7 +27,7 @@ jobs:
         token: ${{ steps.generate-token.outputs.token }}
 
     - name: Install Terraform ⛰️
-      uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # v3
+      uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
 
     - name: Run TFLint ✅ 
       uses: terraform-linters/setup-tflint@19a52fbac37dacb22a09518e4ef6ee234f2d4987 # v4
