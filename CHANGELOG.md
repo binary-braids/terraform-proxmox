@@ -1,4 +1,14 @@
-## 0.1.13 (2024-09-07)
+## [0.1.14](https://github.com/binary-braids/terraform-proxmox/compare/v0.1.13...v0.1.14) (2024-09-07)
+
+
+### Bug Fixes
+
+* ignore github workflow path ([0d29830](https://github.com/binary-braids/terraform-proxmox/commit/0d298303a96be257d2a63ae537ccd79774ee19bb))
+* remove firewall variables ([f989f3a](https://github.com/binary-braids/terraform-proxmox/commit/f989f3a75b0ab9d9515a2141afd60176882f82bc))
+
+
+
+## [0.1.13](https://github.com/binary-braids/terraform-proxmox/compare/8f9bb838022cec5c9525f4e2a6b29791085a3633...v0.1.13) (2024-09-07)
 
 
 ### Bug Fixes
