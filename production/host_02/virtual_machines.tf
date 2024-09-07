@@ -3,46 +3,47 @@
 # Virtual Machines
 
 ## Domain Controller
-resource "proxmox_vm_qemu" "dc01" {
-  name             = var.dc01_name
-  desc             = var.dc01_desc
-  automatic_reboot = var.dc01_automatic_reboot
-  bios             = var.dc01_bios
-  boot             = var.dc01_boot
-  cores            = var.dc01_cores
-  sockets          = var.dc01_sockets
-  cpu              = var.dc01_cpu
-  force_create     = var.dc01_force_create
-  hotplug          = var.dc01_hotplug
-  memory           = var.dc01_memory
-  onboot           = var.dc01_onboot
-  vm_state         = var.dc01_vm_state
-  os_type          = var.dc01_os_type
-  qemu_os          = var.dc01_qemu_os
-  scsihw           = var.dc01_scsihw
-  protection       = var.dc01_protection
-  tablet           = var.dc01_tablet
-  target_node      = var.dc01_target_node
+
+resource "proxmox_vm_qemu" "dc02" {
+  name                   = var.dc02_name
+  desc                   = var.dc02_desc
+  automatic_reboot       = var.dc02_automatic_reboot
+  bios                   = var.dc02_bios
+  boot                   = var.dc02_boot
+  cores                  = var.dc02_cores
+  sockets                = var.dc02_sockets
+  cpu                    = var.dc02_cpu
+  force_create           = var.dc02_force_create
+  hotplug                = var.dc02_hotplug
+  memory                 = var.dc02_memory
+  onboot                 = var.dc02_onboot
+  vm_state               = var.dc02_vm_state
+  os_type                = var.dc02_os_type
+  qemu_os                = var.dc02_qemu_os
+  scsihw                 = var.dc02_scsihw
+  protection             = var.dc02_protection
+  tablet                 = var.dc02_tablet
+  target_node            = var.dc02_target_node
 
   efidisk {
-    efitype = var.dc01_efitype
-    storage = var.dc01_efi_storage
+    efitype = var.dc02_efitype
+    storage = var.dc02_efi_storage
   }
 
   disks {
     sata {
       sata0 {
         disk {
-          size    = var.dc01_disk_size
-          storage = var.dc01_disk_storage
+          size               = var.dc02_disk_size
+          storage            = var.dc02_disk_storage
         }
       }
     }
   }
 
   network {
-    bridge = var.dc01_bridge
-    model  = var.dc01_model
+    bridge    = var.dc02_bridge
+    model     = var.dc02_model
   }
 }
 
