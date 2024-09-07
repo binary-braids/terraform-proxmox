@@ -14,7 +14,6 @@ jobs:
   init_and_plan:
     name: Terraform Init and Plan
     runs-on: Self-Hosted
-    environment: "Host 02 Production"
 
     outputs:
       planExitcode: ${{ steps.terraformPlan.outputs.exitcode }}
