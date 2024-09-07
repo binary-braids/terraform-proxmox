@@ -1,7 +1,9 @@
 name: Terraform Validation CI
 
 on:
-  - pull_request
+  pull_request:
+    paths-ignore:
+      - .github/**
 
 permissions:
   contents: write

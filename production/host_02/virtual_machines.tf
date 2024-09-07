@@ -86,9 +86,8 @@ resource "proxmox_vm_qemu" "veeam" {
   }
 
   network {
-    bridge   = var.veeam_bridge
-    firewall = var.veeam_firewall
-    model    = var.veeam_model
+    bridge    = var.veeam_bridge
+    model     = var.veeam_model
   }
 }
 
@@ -135,9 +134,8 @@ resource "proxmox_vm_qemu" "docker" {
   }
 
   network {
-    bridge   = var.docker_bridge
-    firewall = var.docker_firewall
-    model    = var.docker_model
+    bridge    = var.docker_bridge
+    model     = var.docker_model
   }
 }
 
