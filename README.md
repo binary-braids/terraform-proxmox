@@ -6,7 +6,7 @@
 
 # Terraform Proxmox
 
-This repository contains various Terraform modules for building proxmox resources. This project makes use of the Telmate Proxmox Terraform provider. Setup and documentation for the provider can be found at the following link: https://github.com/Telmate/terraform-provider-proxmox
+This repository contains various Terraform modules for building proxmox resources. This project makes use of the BPG Proxmox Terraform provider. Setup and documentation for the provider can be found at the following link: https://registry.terraform.io/providers/bpg/proxmox/latest
 
 ## 📂 Repository structure
 
