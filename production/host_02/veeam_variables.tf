@@ -3,14 +3,14 @@ variable "veeam_name" {
   type        = string
 }
 
-variable "veeam_desc" {
-  description = "The description of the VM. Shows as the 'Notes' field in the Proxmox GUI"
+variable "veeam_description" {
+  description = "The description of the VM"
   type        = string
 }
 
-variable "veeam_automatic_reboot" {
-  description = "Automatically reboot the VM when parameter changes require this. If disabled the provider will emit a warning when the VM needs to be rebooted."
-  type        = bool
+variable "veeam_vm_id" {
+  description = "The ID of the VM"
+  type        = number
 }
 
 variable "veeam_bios" {
@@ -18,9 +18,14 @@ variable "veeam_bios" {
   type        = string
 }
 
-variable "veeam_boot" {
-  description = "The boot order for the VM. For example: order=scsi0;ide2;net0"
-  type        = string
+variable "veeam_startup_order" {
+  description = "The startup order for the VM"
+  type        = number
+}
+
+variable "veeam_startup_delay" {
+  description = "The number of seconds to delay before the next VM is started"
+  type        = number
 }
 
 variable "veeam_cores" {
@@ -33,67 +38,17 @@ variable "veeam_sockets" {
   type        = number
 }
 
-variable "veeam_cpu" {
-  description = "The type of CPU to emulate in the Guest"
-  type        = string
-}
-
-variable "veeam_force_create" {
-  description = "If false, and a vm of the same name, on the same node exists, terraform will attempt to reconfigure that VM with these settings. Set to true to always create a new VM (note, the name of the VM must still be unique, otherwise an error will be produced.)"
-  type        = bool
-}
-
-variable "veeam_hotplug" {
-  description = "Comma delimited list of hotplug features to enable. Options: network, disk, cpu, memory, usb. Set to 0 to disable hotplug."
-  type        = string
-}
-
 variable "veeam_memory" {
   description = "The amount of memory to allocate to the VM in Megabytes."
   type        = number
 }
 
-variable "veeam_onboot" {
-  description = "Whether to have the VM startup after the PVE node starts."
-  type        = bool
-}
-
-variable "veeam_vm_state" {
-  description = "The desired state of the VM, options are running, stopped and started. Do note that started will only start the vm on creation and won't fully manage the power state unlike running and stopped do."
-  type        = string
-}
-
 variable "veeam_os_type" {
-  description = "Which provisioning method to use, based on the OS type. Options: ubuntu, centos, cloud-init."
+  description = "The OS type for the VM"
   type        = string
 }
 
-variable "veeam_qemu_os" {
-  description = "The type of OS in the guest. Set properly to allow Proxmox to enable optimizations for the appropriate guest OS. It takes the value from the source template and ignore any changes to resource configuration parameter."
-  type        = string
-}
-
-variable "veeam_scsihw" {
-  description = "The SCSI controller to emulate. Options: lsi, lsi53c810, megasas, pvscsi, virtio-scsi-pci, virtio-scsi-single."
-  type        = string
-}
-
-variable "veeam_protection" {
-  description = "Enable/disable the VM protection from being removed. The default value of false indicates the VM is removable."
-  type        = bool
-}
-
-variable "veeam_tablet" {
-  description = "Enable/disable the USB tablet device. This device is usually needed to allow absolute mouse positioning with VNC."
-  type        = bool
-}
-
-variable "veeam_target_node" {
-  description = "The name of the Proxmox Node on which to place the VM."
-  type        = string
-}
-
-variable "veeam_efitype" {
+variable "veeam_efi_disk_type" {
   description = "The type of efi disk device to add. Options: 2m, 4m"
   type        = string
 }
@@ -103,9 +58,14 @@ variable "veeam_efi_storage" {
   type        = string
 }
 
-variable "veeam_disk_size" {
-  description = "The size of the created disk. Accepts K for kibibytes, M for mebibytes, G for gibibytes, T for tibibytes. When only a number is provided gibibytes is assumed. Required when type=disk and passthrough=false, Computed when type=disk and passthrough=true."
+variable "veeam_efi_disk_file_format" {
+  description = "The file format of the efi disk. Defaults to raw"
   type        = string
+}
+
+variable "veeam_disk_size" {
+  description = "The size of the created disk specified in GB"
+  type        = number
 }
 
 variable "veeam_disk_storage" {
@@ -116,6 +76,11 @@ variable "veeam_disk_storage" {
 variable "veeam_bridge" {
   description = "Bridge to which the network device should be attached. The Proxmox VE standard bridge is called vmbr0."
   type        = string
+}
+
+variable "veeam_firewall" {
+  description = "Specify if VM firewall is enabled or disabled."
+  type        = bool
 }
 
 variable "veeam_model" {
