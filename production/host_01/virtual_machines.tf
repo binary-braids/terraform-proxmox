@@ -15,12 +15,12 @@ resource "proxmox_virtual_environment_vm" "dc01" {
   }
 
   startup {
-    order      = var.dc01_startup_order
-    up_delay   = var.dc01_startup_delay
+    order    = var.dc01_startup_order
+    up_delay = var.dc01_startup_delay
   }
 
   cpu {
-    cores = var.dc01_cores
+    cores   = var.dc01_cores
     sockets = var.dc01_sockets
   }
 
@@ -29,9 +29,9 @@ resource "proxmox_virtual_environment_vm" "dc01" {
   }
 
   efi_disk {
-    datastore_id = var.dc01_efi_storage
-    file_format  = var.dc01_efi_disk_file_format
-    type         = var.dc01_efi_disk_type
+    datastore_id      = var.dc01_efi_storage
+    file_format       = var.dc01_efi_disk_file_format
+    type              = var.dc01_efi_disk_type
     pre_enrolled_keys = true
   }
 
@@ -42,9 +42,9 @@ resource "proxmox_virtual_environment_vm" "dc01" {
   }
 
   network_device {
-    bridge = var.dc01_bridge
+    bridge   = var.dc01_bridge
     firewall = var.dc01_firewall
-    model = var.dc01_model
+    model    = var.dc01_model
   }
 
   operating_system {
@@ -67,12 +67,12 @@ resource "proxmox_virtual_environment_vm" "file_server" {
   }
 
   startup {
-    order      = var.file_server_startup_order
-    up_delay   = var.file_server_startup_delay
+    order    = var.file_server_startup_order
+    up_delay = var.file_server_startup_delay
   }
 
   cpu {
-    cores = var.file_server_cores
+    cores   = var.file_server_cores
     sockets = var.file_server_sockets
   }
 
@@ -88,14 +88,14 @@ resource "proxmox_virtual_environment_vm" "file_server" {
 
   disk {
     datastore_id = var.file_server_disk_1_storage
-    interface = "sata1"
-    size = var.file_server_disk_1_size
+    interface    = "sata1"
+    size         = var.file_server_disk_1_size
   }
 
   network_device {
-    bridge = var.file_server_bridge
+    bridge   = var.file_server_bridge
     firewall = var.file_server_firewall
-    model = var.file_server_model
+    model    = var.file_server_model
   }
 
   operating_system {
