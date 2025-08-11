@@ -38,7 +38,7 @@ jobs:
       - name: Install NodeJS 🖥️
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@v3
@@ -82,7 +82,7 @@ jobs:
       - name: Install NodeJS 🖥️
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@v3
