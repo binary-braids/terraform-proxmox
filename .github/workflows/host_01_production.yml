@@ -23,7 +23,7 @@ jobs:
     steps:
 
       - name: Checkout 🔔
-        uses: actions/checkout@v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
 
       - name: Map Secrets to Environment Variables 🗺️ 
         uses: oNaiPs/secrets-to-env-action@v1.5
@@ -71,7 +71,7 @@ jobs:
     steps:
 
       - name: Checkout 🔔
-        uses: actions/checkout@v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
 
       - name: Restore Terraform Plan 🗺️
         uses: actions/cache/restore@v4.0.2
