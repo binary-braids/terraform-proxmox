@@ -36,7 +36,7 @@ jobs:
           files: '["./production/host_01/**/*"]'
 
       - name: Install NodeJS 🖥️
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
           node-version: 20
 
@@ -80,7 +80,7 @@ jobs:
           key: ${{ github.sha }}
 
       - name: Install NodeJS 🖥️
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
         with:
           node-version: 20
 
