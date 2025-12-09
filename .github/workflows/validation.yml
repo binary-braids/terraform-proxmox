@@ -50,8 +50,10 @@ jobs:
       
         # Run terraform-docs command for each subfolder
         for folder in $folder_list; do
-          terraform-docs markdown table --output-file README.md "$folder"
+          terraform-docs markdown table --output-file TERRAFORM.md "$folder"
         done
+
+        rm -rf terraform-docs.tar.gz
 
     - name: Run Terraform fmt ✅
       run: |
