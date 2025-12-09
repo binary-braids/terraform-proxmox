@@ -29,17 +29,17 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Map Secrets to Environment Variables 🗺️ 
-        uses: oNaiPs/secrets-to-env-action@v1.5
+        uses: oNaiPs/secrets-to-env-action@ec46a22bfc9b37e014b627b3208b07eb8909ea0f # v1.5
         with:
             secrets: ${{ toJSON(secrets) }}        
 
       - name: Replace Tokens 🪙
-        uses: cschleiden/replace-tokens@v1.3
+        uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 # v1.3
         with:
-          files: '[".${{ env.FILE_PATH }}/**/*"]'
+          files: '["${{ env.FILE_PATH }}/**/*"]'
 
       - name: Install Terraform ⛰️
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
 
       - name: Terraform Init 🏃
         id: terraformInit
@@ -78,7 +78,7 @@ jobs:
           key: ${{ github.sha }}
 
       - name: Install Terraform ⛰️
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
 
       - name: Terraform Apply 🚀
         run: terraform apply ${{ github.sha }}.tfplan
