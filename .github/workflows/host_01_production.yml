@@ -36,7 +36,7 @@ jobs:
       - name: Replace Tokens 🪙
         uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 # v1.3
         with:
-          files: '[".${{ env.FILE_PATH }}/**/*"]'
+          files: '["${{ env.FILE_PATH }}/**/*"]'
 
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
