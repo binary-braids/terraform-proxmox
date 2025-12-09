@@ -12,6 +12,9 @@ permissions:
   contents: write
   issues: write
 
+env:
+  FILE_PATH: "./production/host_02"
+
 jobs:
   init_and_plan:
     name: Terraform Init and Plan
@@ -33,12 +36,7 @@ jobs:
       - name: Replace Tokens 🪙
         uses: cschleiden/replace-tokens@v1.3
         with:
-          files: '["./production/host_02/**/*"]'
-
-      - name: Install NodeJS 🖥️   
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
+          files: '["${{ env.FILE_PATH }}/**/*"]'
 
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@v3
@@ -46,18 +44,18 @@ jobs:
       - name: Terraform Init 🏃
         id: terraformInit
         run: terraform init
-        working-directory: ./production/host_02
+        working-directory: ${{ env.FILE_PATH }}
 
       - name: Terraform Plan 🗺️
         id: terraformPlan
         run: |
           terraform plan -input=false -no-color -out ${{ github.sha }}.tfplan -detailed-exitcode 
-        working-directory: ./production/host_02
+        working-directory: ${{ env.FILE_PATH }}
 
       - name: Cache Terraform Plan 📦
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
-          path: ./production/host_02/**
+          path: ${{ env.FILE_PATH }}/**
           key: ${{ github.sha }}
 
   apply:
@@ -70,26 +68,13 @@ jobs:
 
     steps:
 
-      - name: Install Docker
-        uses: crazy-max/ghaction-setup-docker@v3
-
-      - name: Manual Approval 🚦
-        uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: data-tangles
-          minimum-approvals: 1
-          issue-title: "Terraform Apply"
-          issue-body: "Please approve or deny the Terraform Apply operation"
-          exclude-workflow-initiator-as-approver: false
-
       - name: Checkout 🔔
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Restore Terraform Plan 🗺️
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
-          path: ./production/host_02/**
+          path: ${{ env.FILE_PATH }}/**
           key: ${{ github.sha }}
 
       - name: Install Terraform ⛰️
@@ -97,5 +82,5 @@ jobs:
 
       - name: Terraform Apply 🚀
         run: terraform apply ${{ github.sha }}.tfplan
-        working-directory: ./production/host_02
+        working-directory: ${{ env.FILE_PATH }}
 
