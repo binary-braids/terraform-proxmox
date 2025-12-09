@@ -2,8 +2,8 @@ terraform {
   required_version = ">= 1.6.0"
   required_providers {
     proxmox = {
-      source = "bpg/proxmox"
-      version = "0.63.0"
+      source  = "bpg/proxmox"
+      version = "0.89.1"
     }
   }
   backend "remote" {

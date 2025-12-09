@@ -16,12 +16,12 @@ resource "proxmox_virtual_environment_vm" "dc02" {
   }
 
   startup {
-    order      = var.dc02_startup_order
-    up_delay   = var.dc02_startup_delay
+    order    = var.dc02_startup_order
+    up_delay = var.dc02_startup_delay
   }
 
   cpu {
-    cores = var.dc02_cores
+    cores   = var.dc02_cores
     sockets = var.dc02_sockets
     type = "x86-64-v2-AES"
   }
@@ -31,9 +31,9 @@ resource "proxmox_virtual_environment_vm" "dc02" {
   }
 
   efi_disk {
-    datastore_id = var.dc02_efi_storage
-    file_format  = var.dc02_efi_disk_file_format
-    type         = var.dc02_efi_disk_type
+    datastore_id      = var.dc02_efi_storage
+    file_format       = var.dc02_efi_disk_file_format
+    type              = var.dc02_efi_disk_type
     pre_enrolled_keys = false
   }
 
@@ -44,9 +44,9 @@ resource "proxmox_virtual_environment_vm" "dc02" {
   }
 
   network_device {
-    bridge = var.dc02_bridge
+    bridge   = var.dc02_bridge
     firewall = var.dc02_firewall
-    model = var.dc02_model
+    model    = var.dc02_model
   }
 
   operating_system {
@@ -70,12 +70,12 @@ resource "proxmox_virtual_environment_vm" "veeam" {
   }
 
   startup {
-    order      = var.veeam_startup_order
-    up_delay   = var.veeam_startup_delay
+    order    = var.veeam_startup_order
+    up_delay = var.veeam_startup_delay
   }
 
   cpu {
-    cores = var.veeam_cores
+    cores   = var.veeam_cores
     sockets = var.veeam_sockets
     type = "x86-64-v2-AES"
   }
@@ -85,9 +85,9 @@ resource "proxmox_virtual_environment_vm" "veeam" {
   }
 
   efi_disk {
-    datastore_id = var.veeam_efi_storage
-    file_format  = var.veeam_efi_disk_file_format
-    type         = var.veeam_efi_disk_type
+    datastore_id      = var.veeam_efi_storage
+    file_format       = var.veeam_efi_disk_file_format
+    type              = var.veeam_efi_disk_type
     pre_enrolled_keys = false
   }
 
@@ -106,9 +106,9 @@ resource "proxmox_virtual_environment_vm" "veeam" {
   }
 
   network_device {
-    bridge = var.veeam_bridge
+    bridge   = var.veeam_bridge
     firewall = var.veeam_firewall
-    model = var.veeam_model
+    model    = var.veeam_model
   }
 
   operating_system {
