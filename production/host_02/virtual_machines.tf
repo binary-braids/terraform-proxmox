@@ -1,7 +1,5 @@
 # Virtual Machines
 
-# Virtual Machines
-
 ## Domain Controller
 resource "proxmox_virtual_environment_vm" "dc02" {
   name        = var.dc02_name
@@ -14,6 +12,7 @@ resource "proxmox_virtual_environment_vm" "dc02" {
 
   agent {
     enabled = true
+    type = "virtio"
   }
 
   startup {
@@ -24,6 +23,7 @@ resource "proxmox_virtual_environment_vm" "dc02" {
   cpu {
     cores = var.dc02_cores
     sockets = var.dc02_sockets
+    type = "x86-64-v2-AES"
   }
 
   memory {
@@ -66,6 +66,7 @@ resource "proxmox_virtual_environment_vm" "veeam" {
 
   agent {
     enabled = true
+    type = "virtio"
   }
 
   startup {
@@ -76,6 +77,7 @@ resource "proxmox_virtual_environment_vm" "veeam" {
   cpu {
     cores = var.veeam_cores
     sockets = var.veeam_sockets
+    type = "x86-64-v2-AES"
   }
 
   memory {
@@ -115,55 +117,54 @@ resource "proxmox_virtual_environment_vm" "veeam" {
 }
 
 # Docker Host
-resource "proxmox_virtual_environment_vm" "docker" {
-  name        = var.docker_name
-  description = var.docker_description
+resource "proxmox_virtual_environment_vm" "docker0202" {
+  name        = var.docker02_name
+  description = var.docker02_description
   node_name   = var.node_name
   migrate     = true
-  vm_id       = var.docker_vm_id
+  vm_id       = var.docker02_vm_id
 
-  bios = var.docker_bios
+  bios = var.docker02_bios
 
   agent {
     enabled = true
   }
 
   startup {
-    order      = var.docker_startup_order
-    up_delay   = var.docker_startup_delay
+    order      = var.docker02_startup_order
+    up_delay   = var.docker02_startup_delay
   }
 
   cpu {
-    cores = var.docker_cores
-    sockets = var.docker_sockets
+    cores = var.docker02_cores
+    sockets = var.docker02_sockets
   }
 
   memory {
-    dedicated = var.docker_memory
+    dedicated = var.docker02_memory
   }
 
   efi_disk {
-    datastore_id = var.docker_efi_storage
-    file_format  = var.docker_efi_disk_file_format
-    type         = var.docker_efi_disk_type
+    datastore_id = var.docker02_efi_storage
+    file_format  = var.docker02_efi_disk_file_format
+    type         = var.docker02_efi_disk_type
     pre_enrolled_keys = false
   }
 
   disk {
-    datastore_id = var.docker_disk_storage
+    datastore_id = var.docker02_disk_storage
     interface    = "sata0"
-    size         = var.docker_disk_size
+    size         = var.docker02_disk_size
   }
 
   network_device {
-    bridge = var.docker_bridge
-    firewall = var.docker_firewall
-    model = var.docker_model
+    bridge = var.docker02_bridge
+    firewall = var.docker02_firewall
+    model = var.docker02_model
   }
 
   operating_system {
-    type = var.docker_os_type
+    type = var.docker02_os_type
   }
 }
-
 
