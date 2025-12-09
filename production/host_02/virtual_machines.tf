@@ -117,7 +117,7 @@ resource "proxmox_virtual_environment_vm" "veeam" {
 }
 
 # Docker Host
-resource "proxmox_virtual_environment_vm" "docker0202" {
+resource "proxmox_virtual_environment_vm" "docker02" {
   name        = var.docker02_name
   description = var.docker02_description
   node_name   = var.node_name
