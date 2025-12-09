@@ -128,6 +128,7 @@ resource "proxmox_virtual_environment_vm" "docker0202" {
 
   agent {
     enabled = true
+    type = "virtio"
   }
 
   startup {
