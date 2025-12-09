@@ -55,7 +55,7 @@ jobs:
         working-directory: ./production/host_01
 
       - name: Cache Terraform Plan 📦
-        uses: actions/cache/save@v4.0.2
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ./production/host_01/**
           key: ${{ github.sha }}
@@ -74,7 +74,7 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Restore Terraform Plan 🗺️
-        uses: actions/cache/restore@v4.0.2
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ./production/host_01/**
           key: ${{ github.sha }}
