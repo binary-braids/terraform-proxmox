@@ -60,7 +60,7 @@ jobs:
         terraform fmt -recursive
 
     - name: Check for changed files 🕵️
-      uses: tj-actions/verify-changed-files@ab875806658e59162bc5f42e4df5c2d4682c459e # v20
+      uses: tj-actions/verify-changed-files@a1c6acee9df209257a246f2cc6ae8cb6581c1edf # v20
       id: verify-changed-files
 
     - name: Commit Terraform code changes 🖊️
