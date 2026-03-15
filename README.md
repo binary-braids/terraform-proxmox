@@ -2,7 +2,11 @@
 [![proxmox](https://img.shields.io/badge/proxmox-orange?style=for-the-badge&logo=proxmox)](https://terraform.io/)
 [![renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?style=for-the-badge&logo=renovate)](https://github.com/renovatebot/renovate)
 
-[![HitCount](https://hits.dwyl.com/binary-braids/terraform-proxmox.svg?style=flat-square&show=unique)](http://hits.dwyl.com/binary-braids/terraform-proxmox)
+![Host 01 Production CD](https://github.com/binary-braids/terraform-proxmox/actions/workflows/host_01_production.yml/badge.svg)
+![Host 02 Production CD](https://github.com/binary-braids/terraform-proxmox/actions/workflows/host_02_production.yml/badge.svg)
+![Release CD](https://github.com/binary-braids/terraform-proxmox/actions/workflows/release.yml/badge.svg)
+![Validation CI](https://github.com/binary-braids/terraform-proxmox/actions/workflows/validation.yml/badge.svg)
+
 
 # Terraform Proxmox
 
