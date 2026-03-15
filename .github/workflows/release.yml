@@ -1,0 +1,58 @@
+name: Release CI
+
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - .github/**
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    outputs:
+      skipped: ${{ steps.changelog.outputs.skipped }}
+      tag: ${{ steps.changelog.outputs.tag }}
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
+      version: ${{ steps.changelog.outputs.version }}      
+
+    steps:
+
+      - name: Generate GitHub App Token 🪙
+        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2
+        id: generate-token
+        with:
+          app-id: ${{ secrets.BRAID_BOT_APP_ID }}
+          private-key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
+
+      - name: Checkout 🔔
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Conventional Changelog Action 📋
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@67139193614f5b9e8db87da1bd4240922b34d765 # v6
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          git-user-name: "braid-bot[bot]"
+          git-user-email: "169546839+braid-bot[bot]@users.noreply.github.com"
+          release-count: 10
+          version-file: package.yaml
+          create-summary: true
+
+      - name: Generate Release 📦
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          name: ${{ steps.changelog.outputs.tag }}
+          generate_release_notes: true
+          body: ${{ steps.changelog.outputs.clean_changelog }}
