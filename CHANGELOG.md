@@ -1,4 +1,13 @@
-# 0.2.0 (2026-03-15)
+## [0.2.1](https://github.com/binary-braids/terraform-proxmox/compare/v0.2.0...v0.2.1) (2026-03-15)
+
+
+### Bug Fixes
+
+* update pull request triggers to include specific paths for production workflows and remove unnecessary README files ([3b400cd](https://github.com/binary-braids/terraform-proxmox/commit/3b400cdf1c6007da131aad1bd63a4021f1df92c1))
+
+
+
+# [0.2.0](https://github.com/binary-braids/terraform-proxmox/compare/8f9bb838022cec5c9525f4e2a6b29791085a3633...v0.2.0) (2026-03-15)
 
 
 ### Bug Fixes
