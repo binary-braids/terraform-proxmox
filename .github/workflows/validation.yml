@@ -37,39 +37,16 @@ jobs:
       with:
         tflint_version: latest
 
-    - name: Download and install Terraform Docs
-      run: |
-        curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.17.0/terraform-docs-v0.17.0-$(uname)-amd64.tar.gz
-        tar -xzf terraform-docs.tar.gz
-        chmod +x terraform-docs
-        mv terraform-docs /usr/local/bin/terraform-docs
-
-    - name: Generate Terraform Docs 🗒️
-      run: |
-        # Get folders which contain .tf files
-        folder_list=$(find . -name '*.tf' -printf '%h\n' | sort -u)
-      
-        # Run terraform-docs command for each subfolder
-        for folder in $folder_list; do
-          terraform-docs markdown table --output-file TERRAFORM.md "$folder"
-        done
-
-        rm -rf terraform-docs.tar.gz
-
     - name: Run Terraform fmt ✅
       run: |
         terraform fmt -recursive
 
-    - name: Check for changed files 🕵️
-      uses: tj-actions/verify-changed-files@a1c6acee9df209257a246f2cc6ae8cb6581c1edf # v20
-      id: verify-changed-files
-
-    - name: Commit Terraform code changes 🖊️
-      if: steps.verify-changed-files.outputs.files_changed == 'true'
-      uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
+    - name: Generate Terraform Docs
+      uses: terraform-docs/gh-actions@v1.4.1
       with:
-        default_author: github_actor
-        author_name: "braid-bot[bot]"
-        author_email: "169546839+braid-bot[bot]@users.noreply.github.com"
-        message: | 
-          "🤖 Automated commit for Workflow Run ID: ${{ github.run_id }} in Branch: ${{ github.head_ref }}"    
+        working-dir: ./production/host_01, ./production/host_02
+        git-push-user-name: "braid-bot[bot]"
+        git-push-user-email: "169546839+braid-bot[bot]@users.noreply.github.com"
+        output-file: TERRAFORM.md
+        output-method: replace
+        git-push: "true"
