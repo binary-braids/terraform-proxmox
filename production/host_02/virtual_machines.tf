@@ -12,7 +12,7 @@ resource "proxmox_virtual_environment_vm" "dc02" {
 
   agent {
     enabled = true
-    type = "virtio"
+    type    = "virtio"
   }
 
   startup {
@@ -23,7 +23,7 @@ resource "proxmox_virtual_environment_vm" "dc02" {
   cpu {
     cores   = var.dc02_cores
     sockets = var.dc02_sockets
-    type = "x86-64-v2-AES"
+    type    = "x86-64-v2-AES"
   }
 
   memory {
@@ -66,7 +66,7 @@ resource "proxmox_virtual_environment_vm" "veeam" {
 
   agent {
     enabled = true
-    type = "virtio"
+    type    = "virtio"
   }
 
   startup {
@@ -77,7 +77,7 @@ resource "proxmox_virtual_environment_vm" "veeam" {
   cpu {
     cores   = var.veeam_cores
     sockets = var.veeam_sockets
-    type = "x86-64-v2-AES"
+    type    = "x86-64-v2-AES"
   }
 
   memory {
@@ -128,16 +128,16 @@ resource "proxmox_virtual_environment_vm" "docker02" {
 
   agent {
     enabled = true
-    type = "virtio"
+    type    = "virtio"
   }
 
   startup {
-    order      = var.docker02_startup_order
-    up_delay   = var.docker02_startup_delay
+    order    = var.docker02_startup_order
+    up_delay = var.docker02_startup_delay
   }
 
   cpu {
-    cores = var.docker02_cores
+    cores   = var.docker02_cores
     sockets = var.docker02_sockets
   }
 
@@ -146,9 +146,9 @@ resource "proxmox_virtual_environment_vm" "docker02" {
   }
 
   efi_disk {
-    datastore_id = var.docker02_efi_storage
-    file_format  = var.docker02_efi_disk_file_format
-    type         = var.docker02_efi_disk_type
+    datastore_id      = var.docker02_efi_storage
+    file_format       = var.docker02_efi_disk_file_format
+    type              = var.docker02_efi_disk_type
     pre_enrolled_keys = false
   }
 
@@ -159,9 +159,9 @@ resource "proxmox_virtual_environment_vm" "docker02" {
   }
 
   network_device {
-    bridge = var.docker02_bridge
+    bridge   = var.docker02_bridge
     firewall = var.docker02_firewall
-    model = var.docker02_model
+    model    = var.docker02_model
   }
 
   operating_system {
