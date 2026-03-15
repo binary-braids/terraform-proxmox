@@ -3,8 +3,8 @@ name: Host 01 Production CD
 on:
   workflow_dispatch:
   pull_request:
-    paths-ignore:
-      - .github/**
+    paths:
+      - './production/host_01/**'
     branches:
       - main  
     
