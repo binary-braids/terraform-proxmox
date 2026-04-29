@@ -34,7 +34,7 @@ jobs:
             secrets: ${{ toJSON(secrets) }}        
 
       - name: Replace Tokens 🪙
-        uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 # v1.3
+        uses: cschleiden/replace-tokens@63252851d87eb5cb853019ba8538b5c51813779d # v1.4
         with:
           files: '["${{ env.FILE_PATH }}/**/*"]'
 
