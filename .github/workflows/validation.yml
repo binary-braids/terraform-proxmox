@@ -42,7 +42,7 @@ jobs:
         terraform fmt -recursive
 
     - name: Generate Terraform Docs
-      uses: terraform-docs/gh-actions@v1.4.1
+      uses: terraform-docs/gh-actions@6de6da0cefcc6b4b7a5cbea4d79d97060733093c # v1.4.1
       with:
         working-dir: ./production/host_01, ./production/host_02
         git-push-user-name: "braid-bot[bot]"
